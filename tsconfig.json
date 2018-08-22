@@ -4,7 +4,8 @@
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
-    "jsx": "preserve",
+    "experimentalDecorators": true,
+    "jsx": "react",
     "lib": [
       "dom",
       "es2016"
