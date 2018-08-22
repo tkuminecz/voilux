@@ -12,11 +12,13 @@ export function toggleLight (x: number, y: number) {
 
 const initialState = {
   board: null,
-  won: false
+  won: false,
+  totalWins: 0
 }
 
 export const getBoard = (state) => state.game.board
 export const getHasWon = (state) => state.game.won
+export const getWinCount = (state) => state.game.totalWins
 
 export const reducers = {
   game: (state = initialState, action) => {
@@ -30,10 +32,13 @@ export const reducers = {
 
       case TOGGLE_LIGHT: {
         const newBoard = toggleBoardLight(state.board, action.x, action.y)
+        const won = hasWon(newBoard)
+        const totalWins = (won) ? state.totalWins + 1 : state.totalWins
         return {
           ...state,
           board: newBoard,
-          won: hasWon(newBoard)
+          totalWins,
+          won
         }
       }
 
