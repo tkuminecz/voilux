@@ -12,6 +12,8 @@ export function toggleLight (x: number, y: number) {
 
 const initialState = null
 
+export const getBoard = (state) => state.board
+
 export const reducers = {
   board: (state = initialState, action) => {
     switch (action.type) {
@@ -28,13 +30,20 @@ export const reducers = {
 }
 
 function generateBoard (size: number): boolean[][] {
-  return new Array(size).map(() =>
-    new Array(size).map(() => false))
+  const board = []
+  for (let row = 0; row < size; row++) {
+    const rowArr = []
+    for (let col = 0; col < size; col++) {
+      rowArr.push(false)
+    }
+    board.push(rowArr)
+  }
+  return board
 }
 
 function toggleBoardLight (board: boolean[][], tx: number, ty: number) {
-  return board.map((col, x) =>
-    col.map((lit, y) =>
+  return board.map((row, y) =>
+    row.map((lit, x) =>
       (x === tx && y === ty)
         ? !lit
         : lit))
