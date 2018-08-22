@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Counter from '#/components/Counter'
+import Link from 'next/link'
 import Logo from '#/components/Logo'
 
 export default class HomePage extends React.Component {
@@ -7,7 +7,11 @@ export default class HomePage extends React.Component {
     return (
       <>
         <Logo/>
-        <Counter/>
+        <div className='main-menu'>
+          <Link href='/game'>
+            <a>New Game</a>
+          </Link>
+        </div>
       </>
     )
   }

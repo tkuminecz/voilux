@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { createBoard } from '#/actions/game'
+import config from '#/config'
 
 interface Props {
   createBoard: (size: number) => void,
@@ -9,7 +10,7 @@ interface Props {
 class NoBoard extends React.Component<Props> {
 
   createBoard = () => {
-    this.props.createBoard(10)
+    this.props.createBoard(config.defaultBoardSize)
   }
 
   render () {

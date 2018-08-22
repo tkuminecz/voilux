@@ -11,8 +11,9 @@ body {}
 $lightSize: 2rem;
 $lightRoundness: 0.7rem;
 $lightSpacing: 0.1rem;
+$lightBorderColor: #555;
 $lightColorOff: #aaa;
-$lightColorOn: #ffa;
+$lightColorOn: #fe7;
 
 .light {
   border-radius: $lightRoundness;
@@ -23,9 +24,31 @@ $lightColorOn: #ffa;
 
   &.on {
     background-color: $lightColorOn;
+    border: 1px solid $lightBorderColor;
   }
 
   &.off {
     background-color: $lightColorOff;
+  }
+}
+
+.main-menu {
+  margin: 1rem 0;
+}
+
+.board-wrapper {
+  positive: relative;
+
+  .board, .win-banner {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+  }
+
+  .win-banner {
+    font-size: 1.5rem;
+    text-align: center;
+
+    p {}
   }
 }

@@ -15,7 +15,11 @@ export function configureStore (initialState: any) {
     composeWithDevTools(applyMiddleware(sagaMiddleware))
   )
 
-  store.sagaTask = sagaMiddleware.run(rootSaga)
+  store.runSagaTask = () => {
+    store.sagaTask = sagaMiddleware.run(rootSaga)
+  }
+
+  store.runSagaTask()
 
   return store
 }
