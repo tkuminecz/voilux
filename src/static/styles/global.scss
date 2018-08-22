@@ -1,0 +1,31 @@
+body {}
+
+.row {
+  clear: both;
+}
+
+.col {
+  float: left;
+}
+
+$lightSize: 2rem;
+$lightRoundness: 0.7rem;
+$lightSpacing: 0.1rem;
+$lightColorOff: #aaa;
+$lightColorOn: #ffa;
+
+.light {
+  border-radius: $lightRoundness;
+  display: block;
+  height: $lightSize;
+  margin: $lightSpacing;
+  width: $lightSize;
+
+  &.on {
+    background-color: $lightColorOn;
+  }
+
+  &.off {
+    background-color: $lightColorOff;
+  }
+}
